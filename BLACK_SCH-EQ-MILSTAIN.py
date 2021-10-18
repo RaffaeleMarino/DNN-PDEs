@@ -171,6 +171,7 @@ def integrate(num_sample):
     x_sample[:, :, 0] = np.ones([num_sample, d]) * _x_init
 
     for i in range(0, N):
+      #this is the Milstein Scheme 
         x_sample[:, :, i + 1] = (1 + __mu * dt) * x_sample[:, :, i] + (__sigma * x_sample[:, :, i] * dw_sample[:, :, i]) + 0.5 * (__sigma * __sigma * x_sample[:, :, i] * (dw_sample[:, :, i] * dw_sample[:, :, i] - dt))
     return dw_sample, x_sample
 
